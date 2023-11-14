@@ -1,11 +1,12 @@
-export default function Card(){
+export default function Card(props){
+    const item = props.item
     return <div className="card">
-    <h2>Rick Sanchez</h2> 
+    <h2>{item.name}</h2> 
       <div className="tags">
         <div className="tag">teste1</div>
         <div className="tag">teste2</div>            
         <div className="tag">teste3</div>    
         </div> 
-    <img src ="https://rickandmortyapi.com/api/character/avatar/1.jpeg"/>
+    <img src ={item.imageUrl}/>
   </div>  
 }
