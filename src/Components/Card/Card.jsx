@@ -1,12 +1,20 @@
-export default function Card(props){
-    const item = props.item
-    return <div className="card">
-    <h2>{item.name}</h2> 
+import { Link } from "react-router-dom"
+import Tag from "../Tag/Tag"
+
+export default function Card(props) {
+  const item = props.item
+
+  const tags = item.tags || []
+
+  return <Link to={`/${item.id}`}>
+    <div className="card">
+      <h2>{item.name}</h2>
       <div className="tags">
-        <div className="tag">teste1</div>
-        <div className="tag">teste2</div>            
-        <div className="tag">teste3</div>    
-        </div> 
-    <img src ={item.imageUrl}/>
-  </div>  
+        {tags.map(function (element) {
+          return <Tag text={element} />
+        })}
+      </div>
+      <img src={item.image} />
+    </div>
+  </Link>
 }
